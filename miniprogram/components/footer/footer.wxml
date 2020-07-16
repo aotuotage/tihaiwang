@@ -1,0 +1,2 @@
+<!--miniprogram/components/footer/footer.wxml-->
+<view class="weui-tabbar__item weui-bar__item_on">脚步</view>

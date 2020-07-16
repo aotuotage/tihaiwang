@@ -1,0 +1,34 @@
+<view class="container">
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+      size="default"
+    ></button>
+    <button class="userinfo-nickname-wrapper" open-type="getUserInfo"  bindgetuserinfo="onGetUserInfo">
+      {{userInfo.nickName?userInfo.nickName:'请点击此处登录'}}
+    </button>
+  </view>
+  <!-- 主题区 -->
+  <view class="content">
+    <navigator url="../simulation/simulation" open-type="navigate">
+      <view class="melist">我的题库</view>
+    </navigator>
+    <navigator url="../practice/practice" open-type="navigate">
+      <view class="melist">我的答题记录</view>
+    </navigator>
+    <navigator url="../interest/interest" open-type="navigate">
+      <view class="melist">我的错题本</view>
+    </navigator>
+  </view>
+  <view class="blockfull" wx:if="{{blockfull}}">
+    <view class="showlogin">
+      <button class="showloginbtn" open-type="getUserInfo"  bindgetuserinfo="onGetUserInfo">
+        请点击此处登录
+      </button>
+    </view>
+  </view>
+</view>

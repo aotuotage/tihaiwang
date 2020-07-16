@@ -1,0 +1,14 @@
+<!--miniprogram/pages/simulation/simulation.wxml-->
+<view class="simulation">
+  <view wx:for="{{list}}" wx:key="index" wx:for-item="items">
+  <navigator url="../detailsqa/detailsqa?id={{items.id}}" open-type="navigate">
+    <view class="list weui-form-preview">
+      <view class="weui-form-preview__hd">{{items.title}}</view>
+      <view class="weui-form-preview__ft">
+        <view class="weui-form-preview__item">时间：{{items.date}}</view>
+        <view class="weui-form-preview__item">创建者：{{items.author}}</view>
+      </view>
+    </view>
+  </navigator>
+  </view>
+</view>

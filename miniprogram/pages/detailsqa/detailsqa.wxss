@@ -1,0 +1,85 @@
+.detailsqa{
+  overflow: hidden;
+}
+.weui-form-preview{
+  text-align: left;
+  margin-top: 20px;
+  font-size: 28rpx;
+}
+#one,#two,#three,#four{
+  font-size: #999;
+  font-size: 34rpx;
+  margin:50rpx 40rpx;
+  display: block;
+}
+.weui-form-preview__hd,.weui-form-preview__bd,.weui-form-preview__ft{
+  text-align: left;
+  color: #888;
+}
+.weui-form-preview__ft{
+  flex-direction: column;
+  padding: 30rpx;
+}
+.title{
+  font-size: 38rpx;
+  display: block;
+  text-align: center;
+  margin: 40rpx 20rpx;
+}
+.notes{
+  display: flex;
+  justify-content: space-around;
+  color: #888;
+  font-size: 28rpx;
+}
+.addbgone{
+  color:rgb(255, 255, 255);
+  background:#1E90FF;
+  transform: scale(1.2);
+  padding:0 60rpx;
+}
+.subjecttitle{
+  position: relative;
+}
+.triangle{
+  position: absolute;
+  right: 30rpx;
+  top: 12rpx;
+  width: 0;
+  height: 0;
+  border-top: 15px solid #999;
+  border-right: 15px solid transparent;
+  border-left:15px solid transparent;
+}
+.triangleup{
+  transform: rotate(180deg);
+}
+.bigquestionstitle{
+  background: rgb(255, 255, 255);
+  color: #888;
+  margin-top: 20px;
+  font-size: 28rpx;
+  text-align: left;
+  display: block;
+  padding: 20rpx;
+}
+.weui-btn{
+  margin: 80rpx 0 80rpx 0;
+}
+.Totalscore{
+  margin-top:40px;
+  font-size:24px;
+  color: #07c160;
+  text-align: center;
+}
+.now{
+  font-size: 14px;
+  color: #ffffff;
+  background:rgb(7,193,96,.8);
+  position:fixed;
+  padding:5px 8px;
+  border-radius: 20px;
+  top:40px;
+  right: 10px;
+  z-index: 99;
+}

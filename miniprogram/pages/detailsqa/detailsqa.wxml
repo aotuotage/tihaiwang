@@ -1,0 +1,144 @@
+<view class="detailsqa">
+  <text class="title">{{qa.title}}</text>
+  <view class="notes">
+    <text class="time">时间：{{qa.date}}</text>
+    <text class="author">创建者：{{qa.author}}</text>
+  </view>
+  <view class="now">剩余时间:{{countDownList}}分钟</view>
+  <!-- 单选题部分 -->
+  <view wx:if="{{qa.Singlechoice}}">
+    <view class="subjecttitle">
+      <text id="one">一、单选，每小题1.5分</text>
+      <i class="triangle {{istriangleone?'triangleup':''}}" data-num="1" bindtap="triangle"></i>
+    </view>
+    <view hidden="{{istriangleone}}">
+      <view class="weui-form-preview" wx:for="{{qa.Singlechoice}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view class="weui-form-preview__hd">
+          {{index+1}}.<span>{{item.title}}</span>
+        </view>
+        <view wx:for="{{item.answer}}" wx:for-index="index2" wx:key="index2" class="weui-form-preview__bd" wx:for-item="initem">
+          <view data-id="1" class="{{item.thechoice == index2?'addbgone':''}}" data-index="{{index}}" data-answer="{{index2}}" bindtap="answer">
+            {{initem}}
+          </view>
+        </view>
+        <view class="weui-form-preview__ft" wx:if="{{ishow}}"> 
+          <text>正确答案:{{item.answer[item.correct]}}</text>
+          <text>答案解析:{{item.analysis}}</text>
+          <text>相关链接:无</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 多选题部分 -->
+  <view wx:if="{{qa.Multiplechoice}}">
+    <view class="subjecttitle">
+      <text id="two">二、多选，每小题2分</text>
+      <i class="triangle {{istriangletwo?'triangleup':''}}" data-num="2"  bindtap="triangle"></i>
+    </view>
+    <view hidden="{{istriangletwo}}">
+      <view class="weui-form-preview" wx:for="{{qa.Multiplechoice}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view class="weui-form-preview__hd">
+          {{index+1}}.<span>{{item.title}}</span>
+        </view>
+        <view wx:for="{{item.newanswer}}" wx:for-index="index2" wx:key="index2" class="weui-form-preview__bd" wx:for-item="initem">
+          <view data-id="1" class="{{initem.ischoice?'addbgone':''}}" data-index="{{index}}" data-answer="{{index2}}" bindtap="answer2">
+            {{initem.data}}
+          </view>
+        </view>
+        <view class="weui-form-preview__ft" wx:if="{{ishow}}"> 
+          <text>正确答案:{{item.answer[item.correct]}}</text>
+          <text>答案解析:{{item.analysis}}</text>
+          <text>相关链接:无</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 判断题部分 -->
+  <view wx:if="{{qa.judge}}">
+    <view class="subjecttitle">
+      <text id="one">三、判断题，每小题1分</text>
+      <i class="triangle {{istrianglethree?'triangleup':''}}" data-num="3"  bindtap="triangle"></i>
+    </view>
+    <view hidden="{{istrianglethree}}">
+      <view class="weui-form-preview" wx:for="{{qa.judge}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view class="weui-form-preview__hd">
+          {{index+1}}.<span>{{item.title}}</span>
+        </view>
+        <view wx:for="{{item.answer}}" wx:for-index="index2" wx:key="index2" class="weui-form-preview__bd" wx:for-item="initem">
+          <view data-id="2" class="{{item.thechoice == index2?'addbgone':''}}" data-index="{{index}}" data-answer="{{index2}}" bindtap="answer">
+            {{initem}}
+          </view>
+        </view>
+        <view class="weui-form-preview__ft" wx:if="{{ishow}}"> 
+          <text>正确答案:{{item.answer[item.correct]}}</text>
+          <text>答案解析:{{item.analysis}}</text>
+          <text>相关链接:无</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 不定选择部分 -->
+  <view wx:if="{{qa.Bigquestions}}">
+    <view class="subjecttitle">
+      <text id="two">四、不定选择题，每小题2分</text>
+      <i class="triangle {{istrianglefour?'triangleup':''}}" data-num="4"  bindtap="triangle"></i>
+    </view>
+    <view hidden="{{istrianglefour}}">
+      <!-- 第一题 -->
+      <rich-text class="bigquestionstitle" nodes="{{qa.Bigquestions.qa1.title}}"></rich-text>
+      <view class="weui-form-preview" wx:for="{{qa.Bigquestions.qa1.list}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view class="weui-form-preview__hd">
+          {{index+1}}.<span>{{item.title}}</span>
+        </view>
+        <view wx:for="{{item.newanswer}}" wx:for-index="index2" wx:key="index2" class="weui-form-preview__bd" wx:for-item="initem">
+          <view data-id="2" data-num="1" class="{{initem.ischoice?'addbgone':''}}" data-index="{{index}}" data-answer="{{index2}}" bindtap="answer2">
+            {{initem.data}}
+          </view>
+        </view>
+        <view class="weui-form-preview__ft" wx:if="{{ishow}}"> 
+          <text>正确答案:{{item.answer[item.correct]}}</text>
+          <text>答案解析:{{item.analysis}}</text>
+          <text>相关链接:无</text>
+        </view>
+      </view>
+      <!-- 第二题 -->
+      <rich-text class="bigquestionstitle" nodes="{{qa.Bigquestions.qa2.title}}"></rich-text>
+      <view class="weui-form-preview" wx:for="{{qa.Bigquestions.qa2.list}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view class="weui-form-preview__hd">
+          {{index+1}}.<span>{{item.title}}</span>
+        </view>
+        <view wx:for="{{item.newanswer}}" wx:for-index="index2" wx:key="index2" class="weui-form-preview__bd" wx:for-item="initem">
+          <view data-id="2" data-num="2" class="{{initem.ischoice?'addbgone':''}}" data-index="{{index}}" data-answer="{{index2}}" bindtap="answer2">
+            {{initem.data}}
+          </view>
+        </view>
+        <view class="weui-form-preview__ft" wx:if="{{ishow}}"> 
+          <text>正确答案:{{item.answer[item.correct]}}</text>
+          <text>答案解析:{{item.analysis}}</text>
+          <text>相关链接:无</text>
+        </view>
+      </view>
+      <!-- 第三题 -->
+      <rich-text class="bigquestionstitle" nodes="{{qa.Bigquestions.qa3.title}}"></rich-text>
+      <view class="weui-form-preview" wx:for="{{qa.Bigquestions.qa3.list}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view class="weui-form-preview__hd">
+          {{index+1}}.<span>{{item.title}}</span>
+        </view>
+        <view wx:for="{{item.newanswer}}" wx:for-index="index2" wx:key="index2" class="weui-form-preview__bd" wx:for-item="initem">
+          <view data-id="2" data-num="3" class="{{initem.ischoice?'addbgone':''}}" data-index="{{index}}" data-answer="{{index2}}" bindtap="answer2">
+            {{initem.data}}
+          </view>
+        </view>
+        <view class="weui-form-preview__ft" wx:if="{{ishow}}"> 
+          <text>正确答案:{{item.answer[item.correct]}}</text>
+          <text>答案解析:{{item.analysis}}</text>
+          <text>相关链接:无</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button bindtap="endbtn" wx:if="{{!ishow}}" class="weui-btn weui-btn_primary">交卷</button>
+  <view class="Totalscore" wx:if="{{ishow}}">
+    您的总分为：{{surenum}}
+  </view>
+</view>

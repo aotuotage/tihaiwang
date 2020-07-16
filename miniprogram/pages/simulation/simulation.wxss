@@ -1,0 +1,14 @@
+/* miniprogram/pages/simulation/simulation.wxss */
+.list:nth-of-type(1){
+  margin-top: 80rpx;
+}
+.list{
+  color: #777;
+  margin-top: 40rpx;
+}
+.weui-form-preview__hd{
+  text-align: center;
+}
+.weui-form-preview__ft{
+  justify-content: space-around;
+}

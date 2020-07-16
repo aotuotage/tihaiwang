@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/addFunction/addFunction",
+    "pages/chooseLib/chooseLib",
+    "pages/openapi/openapi",
+    "pages/openapi/serverapi/serverapi",
+    "pages/openapi/callback/callback",
+    "pages/openapi/cloudid/cloudid",
+    "pages/im/im",
+    "pages/im/room/room",
+    "pages/simulation/simulation",
+    "pages/practice/practice",
+    "pages/interest/interest",
+    "pages/wrongTopic/wrongTopic",
+    "components/footer/footer",
+    "pages/detailsqa/detailsqa"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "题海网",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#4a5fe2",
+    "backgroundColor": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/wrongTopic/wrongTopic",
+        "iconPath": "images/add.png",
+        "selectedIconPath": "images/add2.png",
+        "text": "创建题目"
+      },
+      {
+        "pagePath": "pages/interest/interest",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
