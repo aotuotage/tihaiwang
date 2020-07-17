@@ -12,9 +12,10 @@
     "pages/simulation/simulation",
     "pages/practice/practice",
     "pages/interest/interest",
-    "pages/wrongTopic/wrongTopic",
     "components/footer/footer",
-    "pages/detailsqa/detailsqa"
+    "pages/detailsqa/detailsqa",
+    "pages/wrongbook/wrongbook",
+    "pages/wrongdetail/wrongdetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -35,7 +36,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/wrongTopic/wrongTopic",
+        "pagePath": "pages/practice/practice",
         "iconPath": "images/add.png",
         "selectedIconPath": "images/add2.png",
         "text": "创建题目"

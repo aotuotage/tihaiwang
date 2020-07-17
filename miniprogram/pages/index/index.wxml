@@ -15,7 +15,7 @@
   </view>
   <!-- 主题区 -->
   <view class="content">
-    <navigator url="../simulation/simulation" open-type="navigate">
+    <navigator url="../simulation/simulation?type=1" open-type="navigate">
       <view class="circular one">模拟考试题</view>
     </navigator>
     <navigator url="../practice/practice" open-type="navigate">
@@ -24,7 +24,7 @@
     <navigator url="../interest/interest" open-type="navigate">
       <view class="circular three">趣味问答题</view>
     </navigator>
-    <navigator url="../wrongTopic/wrongTopic" open-type="navigate">
+    <navigator url="../wrongbook/wrongbook" open-type="navigate">
       <view class="circular four">错题记录本</view>
     </navigator>
   </view>

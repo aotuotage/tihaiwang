@@ -14,13 +14,13 @@
   </view>
   <!-- 主题区 -->
   <view class="content">
-    <navigator url="../simulation/simulation" open-type="navigate">
-      <view class="melist">我的题库</view>
+    <navigator url="../simulation/simulation?type=6" open-type="navigate">
+      <view class="melist">我创建的题库</view>
     </navigator>
     <navigator url="../practice/practice" open-type="navigate">
       <view class="melist">我的答题记录</view>
     </navigator>
-    <navigator url="../interest/interest" open-type="navigate">
+    <navigator url="../wrongbook/wrongbook" open-type="navigate">
       <view class="melist">我的错题本</view>
     </navigator>
   </view>

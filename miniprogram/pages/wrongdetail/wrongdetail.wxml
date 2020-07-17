@@ -1,0 +1,17 @@
+<view class="detailsqa">
+  <view class="weui-form-preview" wx:for="{{qa}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+    <view class="weui-form-preview__hd">
+      {{index+1}}.<span>{{item.title}}</span>
+    </view>
+    <view wx:for="{{item.answer}}" wx:for-index="index2" wx:key="index2" class="weui-form-preview__bd" wx:for-item="initem">
+      <view>
+        {{initem}}
+      </view>
+    </view>
+    <view class="weui-form-preview__ft" wx:if="{{ishow}}"> 
+      <text>正确答案:{{item.answer[item.correct]}}</text>
+      <text>答案解析:{{item.analysis}}</text>
+      <text>相关链接:无</text>
+    </view>
+  </view>
+</view>

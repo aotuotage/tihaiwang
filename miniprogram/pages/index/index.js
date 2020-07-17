@@ -44,7 +44,6 @@ Page({
                     key:"userdata",
                     data:userdata
                   })
-                  console.log(res.result.openid)
                   app.globalData.openid = res.result.openid
                 },
                 fail: err => {

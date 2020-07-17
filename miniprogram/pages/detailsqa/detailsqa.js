@@ -130,7 +130,6 @@ Page({
     })
   },
   onReady: function () {
-    console.log(this.data);
   },
   //单选及判断背景选择
   answer:function(e){
@@ -172,7 +171,6 @@ Page({
     }else{
       //不定选择
       dataqa.Bigquestions[`qa${dateset.num}`].list[dateset.index].newanswer[dateset.answer].ischoice = !dataqa.Bigquestions[`qa${dateset.num}`].list[dateset.index].newanswer[dateset.answer].ischoice;
-      console.log(dataqa.Bigquestions[`qa${dateset.num}`].list[dateset.index].newanswer[dateset.answer])
       if(dataqa.Bigquestions[`qa${dateset.num}`].list[dateset.index].newanswer[dateset.answer].ischoice){
         dataqa.Bigquestions[`qa${dateset.num}`].list[dateset.index].option.push(dateset.answer);
         this.setData({
@@ -257,6 +255,7 @@ Page({
         wqlist.push(item)
       }
     })
+    _this.adddata(_this.data.qa,wqlist)
     _this.setData({
       surenum:_this.data.surenum,
       ishow:true
@@ -274,5 +273,32 @@ Page({
         duration: 2000
       })
     }
+  },
+  //保存答题数据
+  adddata:function(qa,wqlist){
+    wx.getStorage({
+      key: 'userdata',
+      success (res) {
+        //更新答题数据
+        wx.cloud.callFunction({
+          name: 'adduserlist',
+          data: {"_openid":res.data.openid,wqlist:wqlist,qa:qa},
+          success: res => {
+            if(res.result.code == 200){
+              setTimeout(function(){
+                wx.showToast({
+                  title: '错题为您保存到了错题本',
+                  icon: 'none',
+                  duration: 2000
+                })
+              },1000)
+            }
+          },
+          fail: err => {
+            console.error(err)
+          }
+        })
+      }
+    })
   }
 })
